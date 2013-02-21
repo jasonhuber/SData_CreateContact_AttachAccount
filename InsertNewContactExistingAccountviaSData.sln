@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsertNewContactExistingAccountviaSData", "InsertNewContactExistingAccountviaSData\InsertNewContactExistingAccountviaSData.csproj", "{D5C41694-904C-4271-A4E5-50F98B878506}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sage.SData.Client_3_5", "Clientlibs\Sage.SData.Client_3_5.csproj", "{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Debug|x86.ActiveCfg = Debug|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Debug|x86.Build.0 = Debug|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Release|Any CPU.ActiveCfg = Release|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Release|Mixed Platforms.Build.0 = Release|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Release|x86.ActiveCfg = Release|x86
+		{D5C41694-904C-4271-A4E5-50F98B878506}.Release|x86.Build.0 = Release|x86
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{590B03D1-FC26-4AFD-98F8-421E6E8DDBA8}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
