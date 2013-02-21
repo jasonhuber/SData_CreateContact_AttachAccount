@@ -55,22 +55,33 @@ namespace InsertNewContactExistingAccountviaSData
             req.ResourceKind = "contacts";
             //AtomEntry needs Sage.SData.Client.Atom so I added a using
             AtomEntry entry = req.Read();
-            var payload = entry.GetSDataPayload();
+            var contact = entry.GetSDataPayload();
 
             //get rid of these guys since we do not want to set them.
-            payload.Values.Remove("CreateDate");
-            payload.Values.Remove("CreateUser");
-            payload.Values.Remove("ModifyDate");
-            payload.Values.Remove("ModifyUser");
+            contact.Values.Remove("CreateDate");
+            contact.Values.Remove("CreateUser");
+            contact.Values.Remove("ModifyDate");
+            contact.Values.Remove("ModifyUser");
 
-           payload.Values["Account"] = GetAccountPayload("AA2EK0013031");
-           payload.Values["Email"] = "jason.huber@sage.com";
-           payload.Values["FirstName"] = "Jason";
-           payload.Values["LastName"] = "Huber";
+            contact.Values["Account"] = GetEntityPayload("accounts", "AA2EK0013031");
+            contact.Values["Email"] = "jason.huber@sage.com";
+            contact.Values["FirstName"] = "Jason";
+            contact.Values["LastName"] = "Huber";
 
             //removing the address, but you would want it, and it would be another payload like account....
-           payload.Values.Remove("Address");
+           //payload.Values.Remove("Address");
            
+            //updated to go and get a new address template and get it in there..
+
+           SDataPayload address = GetEntityTemplate("addresses");
+           
+           address.Values["Description"] = "SalesLogix/Act Office";
+           address.Values["Address1"] = "8800 n. Gainey Center Drive";
+           address.Values["City"] = "Scottsdale";
+           address.Values["State"] = "AZ";
+
+
+           contact.Values["Address"] = address;
             //payload.Values["Description"] = txtProjectDesc.Text;
             //payload.Values["StartDate"] = Convert.ToDateTime(dtStartDate.Text).ToString("yyyy-MM-dd");
             //payload.Values["EndDate"] = Convert.ToDateTime(dtEndDate.Text).ToString("yyyy-MM-dd");
@@ -101,18 +112,17 @@ namespace InsertNewContactExistingAccountviaSData
 
                 MessageBox.Show(ex.Message);
             }
-
         }
-        private SDataPayload GetAccountPayload(string accountid)
+        private SDataPayload GetEntityPayload(string entitytypename, string entityid)
         {
             Sage.SData.Client.Core.SDataSingleResourceRequest request = new
                    Sage.SData.Client.Core.SDataSingleResourceRequest(_service);
 
 
-            request.ResourceKind = "accounts";
-           
+            request.ResourceKind = entitytypename;
 
-            request.ResourceSelector = string.Format("'{0}'",accountid);
+
+            request.ResourceSelector = string.Format("'{0}'", entityid);
             // Read the feed from the server
    
 
@@ -122,6 +132,17 @@ namespace InsertNewContactExistingAccountviaSData
             //first get the payload out for the entry
             return entry.GetSDataPayload();
         
+        }
+
+        private SDataPayload GetEntityTemplate(string entitytypename)
+        {
+            // SDataTemplateResourceRequest needs .Core so I have a using.
+            SDataTemplateResourceRequest req = new SDataTemplateResourceRequest(_service);
+            req.ResourceKind = entitytypename;
+            //AtomEntry needs Sage.SData.Client.Atom so I added a using
+            AtomEntry entry = req.Read();
+            return  entry.GetSDataPayload();
+
         }
     }
 }
